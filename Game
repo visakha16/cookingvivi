@@ -1,0 +1,78 @@
+import time
+
+def print_delay(text, delay=1):
+    """Fungsi untuk mencetak teks dengan jeda waktu tertentu."""
+    print(text)
+    time.sleep(delay)
+
+def pilih_bahan():
+    print_delay("\nSelamat datang di permainan memasak!")
+    print_delay("Hari ini, kita akan memasak sebuah masakan spesial.")
+    print_delay("Pilih bahan utama untuk masakanmu:")
+    print("1. Ayam")
+    print("2. Ikan")
+    print("3. Sayuran")
+    bahan = input("Masukkan pilihanmu (1/2/3): ")
+    
+    if bahan == "1":
+        return "Ayam"
+    elif bahan == "2":
+        return "Ikan"
+    elif bahan == "3":
+        return "Sayuran"
+    else:
+        print_delay("Pilihan tidak valid. Coba lagi!")
+        return pilih_bahan()
+
+def proses_masak(bahan):
+    print_delay(f"\nKamu memilih {bahan} sebagai bahan utama.")
+    print_delay("Sekarang, mari kita mulai memasak!")
+    print("1. Tumis")
+    print("2. Goreng")
+    print("3. Kukus")
+    metode = input("Pilih metode memasak (1/2/3): ")
+    
+    if metode == "1":
+        metode_masak = "Tumis"
+    elif metode == "2":
+        metode_masak = "Goreng"
+    elif metode == "3":
+        metode_masak = "Kukus"
+    else:
+        print_delay("Pilihan tidak valid. Coba lagi!")
+        return proses_masak(bahan)
+    
+    print_delay(f"Kamu memutuskan untuk {metode_masak} {bahan}.")
+    return metode_masak
+
+def bumbu_masak():
+    print_delay("\nSekarang, pilih bumbu untuk masakanmu!")
+    print("1. Pedas")
+    print("2. Manis")
+    print("3. Asin")
+    bumbu = input("Pilih bumbu (1/2/3): ")
+    
+    if bumbu == "1":
+        return "Pedas"
+    elif bumbu == "2":
+        return "Manis"
+    elif bumbu == "3":
+        return "Asin"
+    else:
+        print_delay("Pilihan tidak valid. Coba lagi!")
+        return bumbu_masak()
+
+def akhir_masak(bahan, metode, bumbu):
+    print_delay("\nProses memasak selesai!")
+    print_delay(f"Kamu telah membuat {bahan} dengan cara {metode} dan bumbu {bumbu}.")
+    print_delay("Masakanmu terlihat lezat! Selamat menikmati!")
+
+# Program Utama
+def main():
+    bahan = pilih_bahan()
+    metode = proses_masak(bahan)
+    bumbu = bumbu_masak()
+    akhir_masak(bahan, metode, bumbu)
+
+if _name_ == "_main_":
+    main()
